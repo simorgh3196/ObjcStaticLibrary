@@ -3,10 +3,6 @@ PROJECT_NAME?=${PROJECT_ROOT}/${TARGET_NAME}.xcodeproj
 BUILD_DIR?=./build
 SONAR_OUTPUT_DIR=bw-output
 
-.PHONY:
-
-all: install SampleApp
-
 build-debug:
 	 xcodebuild -configuration Debug clean build
 

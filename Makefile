@@ -4,11 +4,11 @@ BUILD_DIR=./build
 SONAR_BW_OUTPUT_DIR?=bw-output
 
 build-for-debug:
-	 xcodebuild -configuration Debug clean build
+	xcodebuild -configuration Debug clean build
 
 sonar-cloud-travis:
 	echo "=== build for analyze ==="
-	@build-wrapper-macosx-x86 --out-dir ${SONAR_BW_OUTPUT_DIR} make build-for-debug
+	build-wrapper-macosx-x86 --out-dir ${SONAR_BW_OUTPUT_DIR} make build-for-debug > /dev/null
 	echo "=== analyze ==="
 	sonar-scanner -X \
 		-Dsonar.login=${SONAR_TOKEN} \

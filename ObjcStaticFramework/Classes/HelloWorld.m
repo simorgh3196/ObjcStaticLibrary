@@ -19,6 +19,7 @@
 
 + (NSString *)unusedWithUnusedParam:(NSString *)unused {
     NSString *unusedInstance = @"";
+    NSString *unusedInstance2 = @"";
     return @"";
 }
 

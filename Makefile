@@ -10,7 +10,7 @@ sonar-cloud-travis:
 	build-wrapper-macosx-x86 --out-dir ${SONAR_BW_OUTPUT_DIR} make build-for-debug
 	sonar-scanner -X \
 		-Dsonar.login=${SONAR_TOKEN} \
-		-Dsonar.cfamily.build-wrapper-output=${SONAR_OUTPUT_DIR}
+		-Dsonar.cfamily.build-wrapper-output=${SONAR_BW_OUTPUT_DIR}
 		-Dsonar.pullrequest.base=${TRAVIS_BRANCH} \
 		-Dsonar.pullrequest.branch=${TRAVIS_PULL_REQUEST_BRANCH} \
 		-Dsonar.pullrequest.key=${TRAVIS_PULL_REQUEST} \

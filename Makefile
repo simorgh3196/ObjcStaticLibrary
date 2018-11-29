@@ -7,7 +7,9 @@ build-for-debug:
 	 xcodebuild -configuration Debug clean build
 
 sonar-cloud-travis:
-	build-wrapper-macosx-x86 --out-dir ${SONAR_BW_OUTPUT_DIR} make build-for-debug
+	echo "=== build for analyze ==="
+	@build-wrapper-macosx-x86 --out-dir ${SONAR_BW_OUTPUT_DIR} make build-for-debug
+	echo "=== analyze ==="
 	sonar-scanner -X \
 		-Dsonar.login=${SONAR_TOKEN} \
 		-Dsonar.cfamily.build-wrapper-output=${SONAR_BW_OUTPUT_DIR} \
@@ -16,4 +18,4 @@ sonar-cloud-travis:
 		-Dsonar.pullrequest.key=${TRAVIS_PULL_REQUEST} \
 		-Dsonar.pullrequest.provider=GitHub \
 		-Dsonar.pullrequest.github.repository=simorgh3196/${PROJECT_NAME} \
-	rm -rf ${SONAR_BW_OUTPUT_DIR}
+	@rm -rf ${SONAR_BW_OUTPUT_DIR}

@@ -193,4 +193,9 @@ fastlane/test_output
 
 iOSInjectionProject/
 
+#
+# Custom
+#
 
+# sonar
+.scannerwork/

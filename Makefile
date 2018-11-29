@@ -1,14 +1,19 @@
-PROJECT_ROOT=ObjcStaticFramework
-PROJECT_NAME?=${PROJECT_ROOT}/${TARGET_NAME}.xcodeproj
-BUILD_DIR?=./build
-SONAR_OUTPUT_DIR=bw-output
+PROJECT_NAME=ObjcStaticFramework
+PROJECT_FILE_PATH=${PROJECT_NAME}.xcodeproj
+BUILD_DIR=./build
+SONAR_BW_OUTPUT_DIR?=bw-output
 
-build-debug:
+build-for-debug:
 	 xcodebuild -configuration Debug clean build
 
-sonar-cloud:
-	build-wrapper-macosx-x86 --out-dir ${SONAR_OUTPUT_DIR} make build-debug
+sonar-cloud-travis:
+	build-wrapper-macosx-x86 --out-dir ${SONAR_BW_OUTPUT_DIR} make build-for-debug
 	sonar-scanner -X \
 		-Dsonar.login=${SONAR_TOKEN} \
 		-Dsonar.cfamily.build-wrapper-output=${SONAR_OUTPUT_DIR}
-	rm -rf ${SONAR_OUTPUT_DIR}
+		-Dsonar.pullrequest.base=${TRAVIS_BRANCH} \
+		-Dsonar.pullrequest.branch=${TRAVIS_PULL_REQUEST_BRANCH} \
+		-Dsonar.pullrequest.key=${TRAVIS_PULL_REQUEST} \
+		-Dsonar.pullrequest.provider=GitHub \
+		-Dsonar.pullrequest.github.repository=simorgh3196/${PROJECT_NAME} \
+	rm -rf ${SONAR_BW_OUTPUT_DIR}

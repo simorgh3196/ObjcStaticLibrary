@@ -17,5 +17,5 @@ sonar-cloud-travis:
 		-Dsonar.pullrequest.branch=${TRAVIS_PULL_REQUEST_BRANCH} \
 		-Dsonar.pullrequest.key=${TRAVIS_PULL_REQUEST} \
 		-Dsonar.pullrequest.provider=GitHub \
-		-Dsonar.pullrequest.github.repository=simorgh3196/${PROJECT_NAME} \
+		-Dsonar.pullrequest.github.repository=simorgh3196/${PROJECT_NAME}
 	@rm -rf ${SONAR_BW_OUTPUT_DIR}

@@ -1,1 +1,1 @@
-# ObjcStaticLibrary
+# ObjcStaticFramework

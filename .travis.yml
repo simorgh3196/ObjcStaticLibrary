@@ -1,0 +1,16 @@
+language: objective-c
+osx_image: xcode10
+
+stages:
+  - name: analysis
+
+jobs:
+  include:
+    - name: "sonar cloud"
+      dist: trusty
+      addons:
+        sonarcloud:
+          organization: "simorgh3196-github"
+      script:
+        - make sonar-cloud-travis
+      if: type = pull_request

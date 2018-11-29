@@ -193,4 +193,10 @@ fastlane/test_output
 
 iOSInjectionProject/
 
+#
+# Custom
+#
 
+# sonar
+.scannerwork/
+bw-output/

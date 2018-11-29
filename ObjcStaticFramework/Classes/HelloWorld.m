@@ -17,4 +17,9 @@
     return @"World";
 }
 
++ (NSString *)unusedWithUnusedParam:(NSString *)unused {
+    NSString *unusedInstance = @"";
+    return @"";
+}
+
 @end

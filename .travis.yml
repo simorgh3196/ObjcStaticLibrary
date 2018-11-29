@@ -13,4 +13,4 @@ jobs:
           organization: "simorgh3196-github"
       script:
         - make sonar-cloud-travis
-      if: type = push
+      if: type = pull_request
